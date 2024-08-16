@@ -74,6 +74,9 @@ class Copy_Link_For_BuddyBoss_Admin {
 
 		$this->js_asset_file = include( COPY_LINK_FOR_BUDDYBOSS_PLUGIN_PATH . 'build/js/backend.asset.php' );
 		$this->css_asset_file = include( COPY_LINK_FOR_BUDDYBOSS_PLUGIN_PATH . 'build/css/backend.asset.php' );
+
+		$this->activity_key_id = '_copy_link_for_buddyboss_activity_access_control';
+		$this->comment_key_id = '_copy_link_for_buddyboss_comment_access_control';
 	}
 
 	/**
@@ -120,5 +123,83 @@ class Copy_Link_For_BuddyBoss_Admin {
 
 		wp_enqueue_script( $this->plugin_name, COPY_LINK_FOR_BUDDYBOSS_PLUGIN_URL . 'build/js/backend.js', $this->js_asset_file['dependencies'], $this->js_asset_file['version'], false );
 
+	}
+
+	/**
+	 * Add setting for Copy Comment
+	 */
+	public function register_fields( $bp_admin_settings_activity ) {
+
+		$bp_admin_settings_activity->add_section( 
+			'copy_link_for_buddyboss_setttings', 
+			__( 'Copy Link', 'copy-link-for-buddyboss' ) 
+		);
+
+		// Allow scopes/tabs.
+		$type['class'] = 'child-no-padding-first';
+		$bp_admin_settings_activity->add_field( 
+			'_copy_link_for_buddyboss_activity_access_control',
+			__( 'Copy Link', 'copy-link-for-buddyboss' ),
+			array( $this, 'activity_access_control_setting_callback' ),
+			'string',
+			$type
+		);
+
+		// Allow scopes/tabs.
+		$type['class'] = 'child-no-padding-first';
+		$bp_admin_settings_activity->add_field( 
+			'_copy_link_for_buddyboss_comment_access_control',
+			__( 'Copy Link', 'copy-link-for-buddyboss' ),
+			array( $this, 'comment_access_control_setting_callback' ),
+			'string',
+			$type
+		);
+	}
+
+	/**
+	 * Empty Callback function for the display notices only.
+	 *
+	 * @since 1.1.0
+	 */
+	public function activity_access_control_setting_callback() {
+		
+		bb_platform_pro()->access_control->bb_admin_print_access_control_setting( 
+			$this->activity_key_id, 
+			$this->activity_key_id, 
+			'', 
+			__( 'Select which members should have access to copy activity and comment posts link, based on:', 'copy-link-for-buddyboss' ),
+			$this->access_control_settings( $this->activity_key_id ), 
+			false, 
+			''
+		);
+	}
+
+	/**
+	 * Empty Callback function for the display notices only.
+	 *
+	 * @since 1.1.0
+	 */
+	public function comment_access_control_setting_callback() {
+		
+		bb_platform_pro()->access_control->bb_admin_print_access_control_setting( 
+			$this->comment_key_id, 
+			$this->comment_key_id,
+			'', 
+			__( 'Select which members should have access to copy comment posts link, based on:', 'copy-link-for-buddyboss' ),
+			$this->access_control_settings( $this->comment_key_id ), 
+			false, 
+			''
+		);
+	}
+
+	/**
+	 * Function will return the create activity field settings data.
+	 *
+	 * @since 1.1.0
+	 *
+	 * @return array upload document settings data.
+	 */
+	public function access_control_settings( $key_id ) {
+		return bp_get_option( $key_id );
 	}
 }

@@ -286,6 +286,8 @@ final class Copy_Link_For_BuddyBoss {
 		
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
+		$this->loader->add_action( 'bp_admin_setting_activity_register_fields', $plugin_admin, 'register_fields', 2 );
+
 		/**
 		 * Add the Plugin Main Menu
 		 */
@@ -308,6 +310,10 @@ final class Copy_Link_For_BuddyBoss {
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+
+		$this->loader->add_action( 'bb_nouveau_get_activity_entry_bubble_buttons', $plugin_public, 'activity_buttons', 10, 2 );
+
+		$this->loader->add_action( 'bb_nouveau_get_activity_comment_bubble_buttons', $plugin_public, 'comment_buttons',100, 3 );
 
 	}
 

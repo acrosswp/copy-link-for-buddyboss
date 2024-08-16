@@ -121,4 +121,39 @@ class Copy_Link_For_BuddyBoss_Public {
 
 	}
 
+	/**
+	 * Add new button
+	 */
+	public function activity_buttons( $buttons, $activity_id ) {
+
+		$buttons['copy_link'] = array(
+			'id'                => 'copy_link',
+			'component'         => 'activity',
+			'link_text'         => esc_html__( 'Copy Link', 'copy-link-for-buddyboss' ),
+			'button_attr'       => array(
+				'class'			=> 'copy-link-for-buddyboss bp-secondary-action',
+				'rel'   		=> 'nofollow',
+				'href'  		=> bp_activity_get_permalink( $activity_id ),
+			),
+		);
+		return $buttons;
+	}
+
+	/**
+	 * Add new button
+	 */
+	public function comment_buttons( $buttons, $activity_comment_id, $activity_id ) {
+
+		$buttons['copy_link'] = array(
+			'id'                => 'copy_link',
+			'component'         => 'activity',
+			'link_text'         => esc_html__( 'Copy Link', 'copy-link-for-buddyboss' ),
+			'button_attr'       => array(
+				'class'			=> 'copy-link-for-buddyboss bp-secondary-action',
+				'rel'   		=> 'nofollow',
+				'href'  		=> bp_activity_get_permalink( $activity_comment_id ),
+			),
+		);
+		return $buttons;
+	}
 }

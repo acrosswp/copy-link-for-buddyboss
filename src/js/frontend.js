@@ -7,3 +7,13 @@
  * @license   GPL-2.0-or-later
  */
 
+jQuery( 'document' ).ready( function( $ ){
+
+    /**
+     * Copy the Link
+     */
+    jQuery( "body" ).on( "click", ".copy-link-for-buddyboss",  function( event ) {
+        event.preventDefault();
+        navigator.clipboard.writeText( jQuery(this).attr( "href" ) );
+    });
+});

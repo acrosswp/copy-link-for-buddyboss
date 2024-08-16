@@ -1,0 +1,1 @@
+jQuery("document").ready((function(e){jQuery("body").on("click",".copy-link-for-buddyboss",(function(e){e.preventDefault(),navigator.clipboard.writeText(jQuery(this).attr("href"))}))}));
