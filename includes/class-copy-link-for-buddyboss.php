@@ -421,7 +421,7 @@ final class Copy_Link_For_BuddyBoss {
 		/**
 		 * Check if platform pro plugin is activated or not
 		 */
-		if ( $this->is_buddyboss_platform_pro_active() ) {
+		if ( ! $this->is_buddyboss_platform_pro_active() ) {
 			return $create;
 		}
 

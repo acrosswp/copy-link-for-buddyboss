@@ -11,7 +11,7 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 == Description ==
 
-https://www.youtube.com/watch?v=QfwOv1Nsiow
+https://www.youtube.com/watch?v=GlBPcXy_0rE
 
 Enhance the engagement on your BuddyBoss platform with our specialized plugin by AcrossWP. This powerful extension ensures that user can copy the post activity link from the activity area
 
@@ -42,7 +42,7 @@ This section describes how to install the plugin and get it working.
 
 Example 1:
 
-https://www.youtube.com/watch?v=AChIt2MUuwQ
+https://www.youtube.com/watch?v=GlBPcXy_0rE
 
 Example 2:
 1. Upload the plugin files to the `/wp-content/plugins/copy-link-for-buddyboss` directory, or install the plugin through the WordPress plugins screen directly.
