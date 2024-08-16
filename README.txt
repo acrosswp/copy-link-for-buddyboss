@@ -1,102 +1,59 @@
 === Copy Link For BuddyBoss ===
 Contributors: acrosswp, raftaar1191
-Donate link: https://github.com/acrosswp/copy-link-for-buddyboss
-Tags: buddyboss-platform, buddyboss, acrosswp, copy-path 
-Requires at least: 4.9.1
-Tested up to: 6.2.2
+Tags: buddyboss, buddyboss-platform, copy-link, copy-activity-link
+Donate link: https://acrosswp.com/
+Requires at least: 6.0
+Tested up to: 6.4.3
+Stable tag: 1.0.1
 Requires PHP: 7.4
-Stable tag: 1.0.0
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License: GPLv3
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 == Description ==
 
-This is the long description.  No limit, and you can use Markdown (as well as in the following sections).
+https://www.youtube.com/watch?v=QfwOv1Nsiow
 
-For backwards compatibility, if this section is missing, the full length of the short description will be used, and
-Markdown parsed.
+Enhance the engagement on your BuddyBoss platform with our specialized plugin by AcrossWP. This powerful extension ensures that user can copy the post activity link from the activity area
 
-A few notes about the sections above:
+**Key Features:**
 
-*   "Contributors" is a comma separated list of wp.org/wp-plugins.org usernames
-*   "Tags" is a comma separated list of tags that apply to the plugin
-*   "Requires at least" is the lowest version that the plugin will work on
-*   "Tested up to" is the highest version that you've *successfully used to test the plugin*. Note that it might work on
-higher versions... this is just the highest one you've verified.
-*   Stable tag should indicate the Subversion "tag" of the latest stable version, or "trunk," if you use `/trunk/` for
-stable.
+**Acess Control:** There is an setting area for the admin to show the Copy link button depending on the Access Control.
 
-    Note that the `readme.txt` of the stable tag is the one that is considered the defining one for the plugin, so
-if the `/trunk/readme.txt` file says that the stable tag is `4.3`, then it is `/tags/4.3/readme.txt` that'll be used
-for displaying information about the plugin.  In this situation, the only thing considered from the trunk `readme.txt`
-is the stable tag pointer.  Thus, if you develop in trunk, you can update the trunk `readme.txt` to reflect changes in
-your in-development version, without having that information incorrectly disclosed about the current stable version
-that lacks those changes -- as long as the trunk's `readme.txt` points to the correct stable tag.
+Elevate your BuddyBoss community with Copy Link For BuddyBoss. Install now and watch your platform thrive with increased engagement and interaction!
 
-    If no stable tag is provided, it is assumed that trunk is stable, but you should specify "trunk" if that's where
-you put the stable version, in order to eliminate any doubt.
+== Frequently Asked Questions ==
+
+= Support Old version of WordPress =
+
+Yes.
+
+= Support Old version of BuddyBoss Platform =
+
+Yes.
+
+= Does it Support PHP Version 7.4? =
+
+Yes.
+
 
 == Installation ==
 
 This section describes how to install the plugin and get it working.
 
-e.g.
+Example 1:
 
-1. Upload `copy-link-for-buddyboss.php` to the `/wp-content/plugins/` directory
-1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Place `<?php do_action('plugin_name_hook'); ?>` in your templates
+https://www.youtube.com/watch?v=AChIt2MUuwQ
 
-== Frequently Asked Questions ==
+Example 2:
+1. Upload the plugin files to the `/wp-content/plugins/copy-link-for-buddyboss` directory, or install the plugin through the WordPress plugins screen directly.
+2. Activate the plugin through the 'Plugins' screen in WordPress
+3. (Make your instructions match the desired user flow for activating and installing your plugin. Include any steps that might be needed for explanatory purposes)
 
-= A question that someone might have =
-
-An answer to that question.
-
-= What about foo bar? =
-
-Answer to foo bar dilemma.
-
-== Screenshots ==
-
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png`
-(or jpg, jpeg, gif).
-2. This is the second screen shot
 
 == Changelog ==
 
-= 1.0 =
-* A change since the previous version.
-* Another change.
+= 1.0.1 =
+* Update Readme files
 
-== Arbitrary section ==
-
-You may provide arbitrary sections, in the same format as the ones above.  This may be of use for extremely complicated
-plugins where more information needs to be conveyed that doesn't fit into the categories of "description" or
-"installation."  Arbitrary sections will be shown below the built-in sections outlined above.
-
-== A brief Markdown Example ==
-
-Ordered list:
-
-1. Some feature
-1. Another feature
-1. Something else about the plugin
-
-Unordered list:
-
-* something
-* something else
-* third thing
-
-Here's a link to [WordPress](http://wordpress.org/ "Your favorite software") and one to [Markdown's Syntax Documentation][markdown syntax].
-Titles are optional, naturally.
-
-[markdown syntax]: http://daringfireball.net/projects/markdown/syntax
-            "Markdown is what the parser uses to process much of the readme file"
-
-Markdown uses email style notation for blockquotes and I've been told:
-> Asterisks for *emphasis*. Double it up  for **strong**.
-
-`<?php code(); // goes in backticks ?>`
+= 1.0.0 =
+* Add Plugin to WordPress Repository
