@@ -14,11 +14,11 @@
  *
  * @wordpress-plugin
  * Plugin Name:       Copy Link For BuddyBoss
- * Plugin URI:        https://github.com/WPBoilerplate/copy-link-for-buddyboss
+ * Plugin URI:        https://acrosswp.com/downloads/copy-link-for-buddyboss/
  * Description:       Copy Link For BuddyBoss by WPBoilerplate
  * Version:           1.0.1
- * Author:            WPBoilerplate
- * Author URI:        https://github.com/WPBoilerplate/copy-link-for-buddyboss
+ * Author:            AcrossWP
+ * Author URI:        https://acrosswp.com/downloads/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       copy-link-for-buddyboss
