@@ -418,7 +418,10 @@ final class Copy_Link_For_BuddyBoss {
 	 */
 	function is_access_control( $key_id, $create = true ) {
 
-		if ( ! class_exists( 'BB_Access_Control' ) ) {
+		/**
+		 * Check if platform pro plugin is activated or not
+		 */
+		if ( $this->is_buddyboss_platform_pro_active() ) {
 			return $create;
 		}
 
@@ -437,6 +440,18 @@ final class Copy_Link_For_BuddyBoss {
 		}
 
 		return $has_access;
+	}
+
+	/**
+	 * Check if the BB platform pro plugin is activated
+	 */
+	function is_buddyboss_platform_pro_active() {
+
+		if ( ! class_exists( 'BB_Platform_Pro' ) ) {
+			return false;
+		}
+
+		return true;
 	}
 
 }

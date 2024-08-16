@@ -4,7 +4,7 @@ Tags: buddyboss, buddyboss-platform, copy-link, copy-activity-link
 Donate link: https://acrosswp.com/
 Requires at least: 6.0
 Tested up to: 6.4.3
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 Requires PHP: 7.4
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -51,6 +51,9 @@ Example 2:
 
 
 == Changelog ==
+
+= 1.0.2 =
+* Fix fattal error when BB platform Pro is not activate
 
 = 1.0.1 =
 * Update Readme files

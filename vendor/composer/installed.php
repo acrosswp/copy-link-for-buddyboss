@@ -3,7 +3,7 @@
         'name' => 'wpboilerplate/copy-link-for-buddyboss',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '99c2ab3f95844d23b0d556831cf77d9cd301bb79',
+        'reference' => '969efef18d3e0dcf2c52382340ed743c45fbf3ac',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'wpboilerplate/copy-link-for-buddyboss' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '99c2ab3f95844d23b0d556831cf77d9cd301bb79',
+            'reference' => '969efef18d3e0dcf2c52382340ed743c45fbf3ac',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -22,7 +22,7 @@
         'wpboilerplate/wpb-buddyboss-dependency' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '0d2b04e3fc111f14a4bd7aba3d6f7bdab5c4f6df',
+            'reference' => '91d6b3bb1f7c6a945c00aeaa06c4dadee70ae1dd',
             'type' => 'library',
             'install_path' => __DIR__ . '/../wpboilerplate/wpb-buddyboss-dependency',
             'aliases' => array(

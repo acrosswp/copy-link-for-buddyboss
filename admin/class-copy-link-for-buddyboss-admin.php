@@ -81,14 +81,14 @@ class Copy_Link_For_BuddyBoss_Admin {
 
 		$bp_admin_settings_activity->add_section( 
 			Copy_Link_For_BuddyBoss::instance()->settings_key_id, 
-			__( 'Copy Link For BuddyBoss', 'copy-link-for-buddyboss' ) 
+			__( 'Copy link for BuddyBoss', 'copy-link-for-buddyboss' ) 
 		);
 
 		// Allow scopes/tabs.
 		$type['class'] = 'child-no-padding-first';
 		$bp_admin_settings_activity->add_field( 
 			'_copy_link_for_buddyboss_activity_access_control',
-			__( 'Copy Link Setting for Activity', 'copy-link-for-buddyboss' ),
+			__( 'Copy link setting for Activity', 'copy-link-for-buddyboss' ),
 			array( $this, 'activity_access_control_setting_callback' ),
 			'string',
 			$type
@@ -98,7 +98,7 @@ class Copy_Link_For_BuddyBoss_Admin {
 		$type['class'] = 'child-no-padding-first';
 		$bp_admin_settings_activity->add_field( 
 			'_copy_link_for_buddyboss_comment_access_control',
-			__( 'Copy Link Setting for Comments', 'copy-link-for-buddyboss' ),
+			__( 'Copy link setting for Comments', 'copy-link-for-buddyboss' ),
 			array( $this, 'comment_access_control_setting_callback' ),
 			'string',
 			$type
@@ -112,15 +112,22 @@ class Copy_Link_For_BuddyBoss_Admin {
 	 */
 	public function activity_access_control_setting_callback() {
 		
-		bb_platform_pro()->access_control->bb_admin_print_access_control_setting( 
-			Copy_Link_For_BuddyBoss::instance()->activity_key_id,
-			Copy_Link_For_BuddyBoss::instance()->activity_key_id,
-			'', 
-			__( 'Select which members should have access to copy activity posts link, based on:', 'copy-link-for-buddyboss' ),
-			Copy_Link_For_BuddyBoss::instance()->access_control_settings( Copy_Link_For_BuddyBoss::instance()->activity_key_id ), 
-			false, 
-			''
-		);
+		/**
+		 * Check if platform pro plugin is activated or not
+		 */
+		if ( Copy_Link_For_BuddyBoss::instance()->is_buddyboss_platform_pro_active() ) {
+			bb_platform_pro()->access_control->bb_admin_print_access_control_setting( 
+				Copy_Link_For_BuddyBoss::instance()->activity_key_id,
+				Copy_Link_For_BuddyBoss::instance()->activity_key_id,
+				'', 
+				__( 'Select which members should have access to copy activity posts link, based on:', 'copy-link-for-buddyboss' ),
+				Copy_Link_For_BuddyBoss::instance()->access_control_settings( Copy_Link_For_BuddyBoss::instance()->activity_key_id ), 
+				false, 
+				''
+			);
+		} else { 
+			$this->show_message_for_platform_pro_plugin();
+		}
 	}
 
 	/**
@@ -129,16 +136,34 @@ class Copy_Link_For_BuddyBoss_Admin {
 	 * @since 1.1.0
 	 */
 	public function comment_access_control_setting_callback() {
-		
-		bb_platform_pro()->access_control->bb_admin_print_access_control_setting( 
-			Copy_Link_For_BuddyBoss::instance()->comment_key_id, 
-			Copy_Link_For_BuddyBoss::instance()->comment_key_id,
-			'', 
-			__( 'Select which members should have access to copy comment posts link, based on:', 'copy-link-for-buddyboss' ),
-			Copy_Link_For_BuddyBoss::instance()->access_control_settings( Copy_Link_For_BuddyBoss::instance()->comment_key_id ), 
-			false, 
-			''
-		);
+
+		/**
+		 * Check if platform pro plugin is activated or not
+		 */
+		if ( Copy_Link_For_BuddyBoss::instance()->is_buddyboss_platform_pro_active() ) {
+			
+			bb_platform_pro()->access_control->bb_admin_print_access_control_setting( 
+				Copy_Link_For_BuddyBoss::instance()->comment_key_id, 
+				Copy_Link_For_BuddyBoss::instance()->comment_key_id,
+				'', 
+				__( 'Select which members should have access to copy comment posts link, based on:', 'copy-link-for-buddyboss' ),
+				Copy_Link_For_BuddyBoss::instance()->access_control_settings( Copy_Link_For_BuddyBoss::instance()->comment_key_id ), 
+				false, 
+				''
+			);
+
+		} else { 
+			$this->show_message_for_platform_pro_plugin();
+		}
+	}
+
+	/**
+	 * Show the message if the BB platform pro plugin is not activated
+	 */
+	public function show_message_for_platform_pro_plugin() {
+		?>
+		<p class="description"><?php esc_html_e( 'Please install and activate the BuddyBoss Platform Pro plugin to manage the Copy link button via Acess Control.', 'copy-link-for-buddyboss' ); ?></p>
+		<?php
 	}
 
 	/**
