@@ -16,7 +16,7 @@
  * Plugin Name:       Copy Link For BuddyBoss
  * Plugin URI:        https://acrosswp.com/downloads/copy-link-for-buddyboss/
  * Description:       Copy Link For BuddyBoss by WPBoilerplate
- * Version:           1.0.1
+ * Version:           1.0.4
  * Author:            AcrossWP
  * Author URI:        https://acrosswp.com/downloads/
  * License:           GPL-2.0+

@@ -4,14 +4,14 @@ Tags: buddyboss, buddyboss-platform, copy-link, copy-activity-link
 Donate link: https://acrosswp.com/
 Requires at least: 6.0
 Tested up to: 6.4.3
-Stable tag: 1.0.2
+Stable tag: 1.0.4
 Requires PHP: 7.4
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 == Description ==
 
-https://www.youtube.com/watch?v=GlBPcXy_0rE
+https://www.youtube.com/watch?v=x2TNSItcsr4
 
 Enhance the engagement on your BuddyBoss platform with our specialized plugin by AcrossWP. This powerful extension ensures that user can copy the post activity link from the activity area
 
@@ -51,6 +51,14 @@ Example 2:
 
 
 == Changelog ==
+
+= 1.0.4 =
+* Update Changelog
+* Update Readme file
+* Remove unwanted code
+
+= 1.0.3 =
+* Fix error with BB platform Pro
 
 = 1.0.2 =
 * Fix fattal error when BB platform Pro is not activate

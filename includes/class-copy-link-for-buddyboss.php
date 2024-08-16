@@ -425,16 +425,18 @@ final class Copy_Link_For_BuddyBoss {
 			return $create;
 		}
 
-		$create_activity_settings = $this->access_control_settings( $key_id );
+		$settings = $this->access_control_settings( $key_id );
 		$has_access               = false;
-		if ( empty( $create_activity_settings ) || ( isset( $create_activity_settings['access-control-type'] ) && empty( $create_activity_settings['access-control-type'] ) ) ) {
+		if ( empty( $settings ) || ( isset( $settings['access-control-type'] ) && empty( $settings['access-control-type'] ) ) ) {
 			$has_access = $create;
-		} elseif ( is_array( $create_activity_settings ) && isset( $create_activity_settings['access-control-type'] ) && ! empty( $create_activity_settings['access-control-type'] ) ) {
-			$access_controls        = BB_Access_Control::bb_get_access_control_lists();
-			$option_access_controls = $create_activity_settings['access-control-type'];
-			$can_accept             = bb_access_control_has_access( bp_loggedin_user_id(), $access_controls, $option_access_controls, $create_activity_settings );
 
-			if ( $can_accept ) {
+		} elseif ( is_array( $settings ) && isset( $settings['access-control-type'] ) && ! empty( $settings['access-control-type'] ) ) {
+
+			$access_controls        = BB_Access_Control::bb_get_access_control_lists();
+			$option_access_controls = $settings['access-control-type'];
+			$can_accept             = bb_access_control_has_access( bp_loggedin_user_id(), $access_controls, $option_access_controls, $settings );
+
+			if ( $can_accept ) {	
 				$has_access = $create;
 			}
 		}
