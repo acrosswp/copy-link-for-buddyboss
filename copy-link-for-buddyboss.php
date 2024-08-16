@@ -38,27 +38,6 @@ if ( ! defined( 'WPINC' ) ) {
 define( 'COPY_LINK_FOR_BUDDYBOSS_FILES', __FILE__ );
 
 /**
- * The code that runs during plugin activation.
- * This action is documented in includes/class-copy-link-for-buddyboss-activator.php
- */
-function copy_link_for_buddyboss_activate() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-copy-link-for-buddyboss-activator.php';
-	Copy_Link_For_BuddyBoss_Activator::activate();
-}
-
-/**
- * The code that runs during plugin deactivation.
- * This action is documented in includes/class-copy-link-for-buddyboss-deactivator.php
- */
-function copy_link_for_buddyboss_deactivate() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-copy-link-for-buddyboss-deactivator.php';
-	Copy_Link_For_BuddyBoss_Deactivator::deactivate();
-}
-
-register_activation_hook( __FILE__, 'copy_link_for_buddyboss_activate' );
-register_deactivation_hook( __FILE__, 'copy_link_for_buddyboss_deactivate' );
-
-/**
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */
