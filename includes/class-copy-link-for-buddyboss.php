@@ -321,10 +321,6 @@ final class Copy_Link_For_BuddyBoss {
 	private function define_admin_hooks() {
 		
 		$plugin_admin = new Copy_Link_For_BuddyBoss_Admin( $this->get_plugin_name(), $this->get_version() );
-		
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
-		
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
 		$this->loader->add_action( 'bp_admin_setting_activity_register_fields', $plugin_admin, 'register_fields', 2 );
 
@@ -421,6 +417,10 @@ final class Copy_Link_For_BuddyBoss {
 	 * @return boolean whether user can create a activity or not.
 	 */
 	function is_access_control( $key_id, $create = true ) {
+
+		if ( ! class_exists( 'BB_Access_Control' ) ) {
+			return $create;
+		}
 
 		$create_activity_settings = $this->access_control_settings( $key_id );
 		$has_access               = false;
