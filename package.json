@@ -23,7 +23,7 @@
 		"start": "wp-scripts start"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^26.5.0",
+		"@wordpress/scripts": "^28.5.0",
 		"copy-webpack-plugin": "^11.0.0",
 		"glob": "^10.2.6",
 		"mini-css-extract-plugin": "^2.7.6",
