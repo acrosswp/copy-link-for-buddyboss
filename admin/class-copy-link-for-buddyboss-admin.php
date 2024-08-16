@@ -74,9 +74,6 @@ class Copy_Link_For_BuddyBoss_Admin {
 
 		$this->js_asset_file = include( COPY_LINK_FOR_BUDDYBOSS_PLUGIN_PATH . 'build/js/backend.asset.php' );
 		$this->css_asset_file = include( COPY_LINK_FOR_BUDDYBOSS_PLUGIN_PATH . 'build/css/backend.asset.php' );
-
-		$this->activity_key_id = '_copy_link_for_buddyboss_activity_access_control';
-		$this->comment_key_id = '_copy_link_for_buddyboss_comment_access_control';
 	}
 
 	/**
@@ -164,11 +161,11 @@ class Copy_Link_For_BuddyBoss_Admin {
 	public function activity_access_control_setting_callback() {
 		
 		bb_platform_pro()->access_control->bb_admin_print_access_control_setting( 
-			$this->activity_key_id, 
-			$this->activity_key_id, 
+			Copy_Link_For_BuddyBoss::instance()->activity_key_id, 
+			Copy_Link_For_BuddyBoss::instance()->activity_key_id, 
 			'', 
-			__( 'Select which members should have access to copy activity and comment posts link, based on:', 'copy-link-for-buddyboss' ),
-			$this->access_control_settings( $this->activity_key_id ), 
+			__( 'Select which members should have access to copy activity posts link, based on:', 'copy-link-for-buddyboss' ),
+			Copy_Link_For_BuddyBoss::instance()->access_control_settings( Copy_Link_For_BuddyBoss::instance()->activity_key_id ), 
 			false, 
 			''
 		);
@@ -182,24 +179,13 @@ class Copy_Link_For_BuddyBoss_Admin {
 	public function comment_access_control_setting_callback() {
 		
 		bb_platform_pro()->access_control->bb_admin_print_access_control_setting( 
-			$this->comment_key_id, 
-			$this->comment_key_id,
+			Copy_Link_For_BuddyBoss::instance()->comment_key_id, 
+			Copy_Link_For_BuddyBoss::instance()->comment_key_id,
 			'', 
 			__( 'Select which members should have access to copy comment posts link, based on:', 'copy-link-for-buddyboss' ),
-			$this->access_control_settings( $this->comment_key_id ), 
+			Copy_Link_For_BuddyBoss::instance()->access_control_settings( Copy_Link_For_BuddyBoss::instance()->comment_key_id ), 
 			false, 
 			''
 		);
-	}
-
-	/**
-	 * Function will return the create activity field settings data.
-	 *
-	 * @since 1.1.0
-	 *
-	 * @return array upload document settings data.
-	 */
-	public function access_control_settings( $key_id ) {
-		return bp_get_option( $key_id );
 	}
 }

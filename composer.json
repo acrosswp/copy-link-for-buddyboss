@@ -5,7 +5,10 @@
     "description": "Composer to autoload the condition checking for which this add-on is made",
     "homepage": "https://github.com/WPBoilerplate/",
     "minimum-stability": "dev",
-    "require": {},
+    "require": {
+        "wpboilerplate/wpb-updater-checker-github": "dev-main",
+        "wpboilerplate/wpb-buddyboss-dependency": "dev-main"
+    },
     "keywords": [
         "wordpress",
         "plugin"

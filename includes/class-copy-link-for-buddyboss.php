@@ -77,6 +77,24 @@ final class Copy_Link_For_BuddyBoss {
 	protected $version;
 
 	/**
+	 * The unique identifier of activity key id.
+	 *
+	 * @since    1.0.0
+	 * @access   protected
+	 * @var      string    $plugin_name    The string used to uniquely identify activity key id.
+	 */
+	public $activity_key_id;
+
+	/**
+	 * The unique identifier of comment key id.
+	 *
+	 * @since    1.0.0
+	 * @access   protected
+	 * @var      string    $plugin_name    The string used to uniquely identify comment key id.
+	 */
+	public $comment_key_id;
+
+	/**
 	 * Define the core functionality of the plugin.
 	 *
 	 * Set the plugin name and the plugin version that can be used throughout the plugin.
@@ -88,6 +106,9 @@ final class Copy_Link_For_BuddyBoss {
 	public function __construct() {
 
 		$this->plugin_name = 'copy-link-for-buddyboss';
+
+		$this->activity_key_id = '_copy_link_for_buddyboss_activity_access_control';
+		$this->comment_key_id = '_copy_link_for_buddyboss_comment_access_control';
 
 		$this->define_constants();
 
@@ -194,6 +215,29 @@ final class Copy_Link_For_BuddyBoss {
 		 */
 		if ( file_exists( COPY_LINK_FOR_BUDDYBOSS_PLUGIN_PATH . 'vendor/autoload.php' ) ) {
 			require_once( COPY_LINK_FOR_BUDDYBOSS_PLUGIN_PATH . 'vendor/autoload.php' );
+		}
+
+		/**
+		 * For Plugin to check if BuddyBoss Platform plugin is active or not
+		 */
+		if ( class_exists( 'WPBoilerplate_BuddyBoss_Platform_Dependency' ) ) {
+			new WPBoilerplate_BuddyBoss_Platform_Dependency( COPY_LINK_FOR_BUDDYBOSS_PLUGIN_NAME_SLUG, COPY_LINK_FOR_BUDDYBOSS_PLUGIN_FILE );
+		}
+
+		/**
+		 * For Plugin Update via Github
+		 */
+		if ( class_exists( 'WPBoilerplate_Updater_Checker_Github' ) ) {
+
+			$package = array(
+				'repo' 		        => 'https://github.com/acrosswp/copy-link-for-buddyboss',
+				'file_path' 		=> COPY_LINK_FOR_BUDDYBOSS_PLUGIN_FILE,
+				'name_slug'			=> COPY_LINK_FOR_BUDDYBOSS_PLUGIN_NAME_SLUG,
+				'release_branch' 	=> 'main',
+				'release-assets' 	=> true
+			);
+
+			new WPBoilerplate_Updater_Checker_Github( $package );
 		}
 	}
 
@@ -355,6 +399,53 @@ final class Copy_Link_For_BuddyBoss {
 	 */
 	public function get_version() {
 		return $this->version;
+	}
+
+	/**
+	 * Function will return the create activity field settings data.
+	 *
+	 * @since 1.1.0
+	 *
+	 * @return array upload document settings data.
+	 */
+	public function access_control_settings( $key_id ) {
+
+		$default = array(
+			'access-control-type'           => '',
+			'plugin-access-control-type'    => '',
+			'gamipress-access-control-type' => '',
+			'access-control-options'        => array(),
+		);
+
+		return bp_get_option( $key_id, $default );
+	}
+
+	/**
+	 * Function will check if user can create a activity or not.
+	 *
+	 * @param boolean $create whether user can create a activity or not.
+	 *
+	 * @since 1.1.0
+	 *
+	 * @return boolean whether user can create a activity or not.
+	 */
+	function is_access_control( $key_id, $create = true ) {
+
+		$create_activity_settings = $this->access_control_settings( $key_id );
+		$has_access               = false;
+		if ( empty( $create_activity_settings ) || ( isset( $create_activity_settings['access-control-type'] ) && empty( $create_activity_settings['access-control-type'] ) ) ) {
+			$has_access = $create;
+		} elseif ( is_array( $create_activity_settings ) && isset( $create_activity_settings['access-control-type'] ) && ! empty( $create_activity_settings['access-control-type'] ) ) {
+			$access_controls        = BB_Access_Control::bb_get_access_control_lists();
+			$option_access_controls = $create_activity_settings['access-control-type'];
+			$can_accept             = bb_access_control_has_access( bp_loggedin_user_id(), $access_controls, $option_access_controls, $create_activity_settings );
+
+			if ( $can_accept ) {
+				$has_access = $create;
+			}
+		}
+
+		return $has_access;
 	}
 
 }

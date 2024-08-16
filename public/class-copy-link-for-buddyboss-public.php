@@ -126,6 +126,10 @@ class Copy_Link_For_BuddyBoss_Public {
 	 */
 	public function activity_buttons( $buttons, $activity_id ) {
 
+		if ( ! Copy_Link_For_BuddyBoss::instance()->is_access_control( Copy_Link_For_BuddyBoss::instance()->activity_key_id ) ) {
+			return $buttons;
+		}
+
 		$buttons['copy_link'] = array(
 			'id'                => 'copy_link',
 			'component'         => 'activity',
@@ -136,6 +140,7 @@ class Copy_Link_For_BuddyBoss_Public {
 				'href'  		=> bp_activity_get_permalink( $activity_id ),
 			),
 		);
+
 		return $buttons;
 	}
 
@@ -143,6 +148,10 @@ class Copy_Link_For_BuddyBoss_Public {
 	 * Add new button
 	 */
 	public function comment_buttons( $buttons, $activity_comment_id, $activity_id ) {
+
+		if ( ! Copy_Link_For_BuddyBoss::instance()->is_access_control( Copy_Link_For_BuddyBoss::instance()->comment_key_id ) ) {
+			return $buttons;
+		}
 
 		$buttons['copy_link'] = array(
 			'id'                => 'copy_link',
