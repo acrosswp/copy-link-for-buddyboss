@@ -222,7 +222,7 @@ final class Copy_Link_For_BuddyBoss {
 		 * For Plugin to check if BuddyBoss Platform plugin is active or not
 		 */
 		if ( class_exists( 'WPBoilerplate_BuddyBoss_Platform_Dependency' ) ) {
-			new WPBoilerplate_BuddyBoss_Platform_Dependency( COPY_LINK_FOR_BUDDYBOSS_PLUGIN_NAME_SLUG, COPY_LINK_FOR_BUDDYBOSS_PLUGIN_FILE );
+			new WPBoilerplate_BuddyBoss_Platform_Dependency( COPY_LINK_FOR_BUDDYBOSS_PLUGIN_NAME_SLUG, COPY_LINK_FOR_BUDDYBOSS_PLUGIN_FILE, array( 'activity' ) );
 		}
 
 		/**
