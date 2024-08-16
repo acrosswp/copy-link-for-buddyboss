@@ -128,15 +128,15 @@ class Copy_Link_For_BuddyBoss_Admin {
 	public function register_fields( $bp_admin_settings_activity ) {
 
 		$bp_admin_settings_activity->add_section( 
-			'copy_link_for_buddyboss_setttings', 
-			__( 'Copy Link', 'copy-link-for-buddyboss' ) 
+			Copy_Link_For_BuddyBoss::instance()->settings_key_id, 
+			__( 'Copy Link For BuddyBoss', 'copy-link-for-buddyboss' ) 
 		);
 
 		// Allow scopes/tabs.
 		$type['class'] = 'child-no-padding-first';
 		$bp_admin_settings_activity->add_field( 
 			'_copy_link_for_buddyboss_activity_access_control',
-			__( 'Copy Link', 'copy-link-for-buddyboss' ),
+			__( 'Copy Link Setting for Activity', 'copy-link-for-buddyboss' ),
 			array( $this, 'activity_access_control_setting_callback' ),
 			'string',
 			$type
@@ -146,7 +146,7 @@ class Copy_Link_For_BuddyBoss_Admin {
 		$type['class'] = 'child-no-padding-first';
 		$bp_admin_settings_activity->add_field( 
 			'_copy_link_for_buddyboss_comment_access_control',
-			__( 'Copy Link', 'copy-link-for-buddyboss' ),
+			__( 'Copy Link Setting for Comments', 'copy-link-for-buddyboss' ),
 			array( $this, 'comment_access_control_setting_callback' ),
 			'string',
 			$type
@@ -161,8 +161,8 @@ class Copy_Link_For_BuddyBoss_Admin {
 	public function activity_access_control_setting_callback() {
 		
 		bb_platform_pro()->access_control->bb_admin_print_access_control_setting( 
-			Copy_Link_For_BuddyBoss::instance()->activity_key_id, 
-			Copy_Link_For_BuddyBoss::instance()->activity_key_id, 
+			Copy_Link_For_BuddyBoss::instance()->activity_key_id,
+			Copy_Link_For_BuddyBoss::instance()->activity_key_id,
 			'', 
 			__( 'Select which members should have access to copy activity posts link, based on:', 'copy-link-for-buddyboss' ),
 			Copy_Link_For_BuddyBoss::instance()->access_control_settings( Copy_Link_For_BuddyBoss::instance()->activity_key_id ), 
@@ -186,6 +186,33 @@ class Copy_Link_For_BuddyBoss_Admin {
 			Copy_Link_For_BuddyBoss::instance()->access_control_settings( Copy_Link_For_BuddyBoss::instance()->comment_key_id ), 
 			false, 
 			''
+		);
+	}
+
+	/**
+	 * Add Settings link to plugins area.
+	 *
+	 * @since    1.0.0
+	 *
+	 * @param array  $links Links array in which we would prepend our link.
+	 * @param string $file  Current plugin basename.
+	 * @return array Processed links.
+	 */
+	public function plugin_action_links( $links, $file ) {
+
+		// Return normal links if not BuddyPress.
+		if ( COPY_LINK_FOR_BUDDYBOSS_PLUGIN_BASENAME !== $file ) {
+			return $links;
+		}
+
+		$settings_link = bp_get_admin_url( add_query_arg( array( 'page' => 'bp-settings', 'tab' => 'bp-activity' ), 'admin.php' ) );
+
+		// Add a few links to the existing links array.
+		return array_merge(
+			$links,
+			array(
+				'settings'	=> sprintf( '<a href="%s#%s">%s</a>', $settings_link, Copy_Link_For_BuddyBoss::instance()->settings_key_id, esc_html__( 'Settings', 'copy-link-for-buddyboss' ) ),
+			)
 		);
 	}
 }

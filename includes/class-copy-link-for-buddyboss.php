@@ -107,6 +107,7 @@ final class Copy_Link_For_BuddyBoss {
 
 		$this->plugin_name = 'copy-link-for-buddyboss';
 
+		$this->settings_key_id = 'copy_link_for_buddyboss_setttings';
 		$this->activity_key_id = '_copy_link_for_buddyboss_activity_access_control';
 		$this->comment_key_id = '_copy_link_for_buddyboss_comment_access_control';
 
@@ -284,11 +285,6 @@ final class Copy_Link_For_BuddyBoss {
 		require_once COPY_LINK_FOR_BUDDYBOSS_PLUGIN_PATH . 'admin/class-copy-link-for-buddyboss-admin.php';
 
 		/**
-		 * The class responsible for defining the plugin menu
-		 */
-		require_once COPY_LINK_FOR_BUDDYBOSS_PLUGIN_PATH . 'admin/partials/copy-link-for-buddyboss-main-menu.php';
-
-		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
 		 */
@@ -332,12 +328,7 @@ final class Copy_Link_For_BuddyBoss {
 
 		$this->loader->add_action( 'bp_admin_setting_activity_register_fields', $plugin_admin, 'register_fields', 2 );
 
-		/**
-		 * Add the Plugin Main Menu
-		 */
-		$main_menu = new Copy_Link_For_BuddyBoss_Main_Menu( $this->get_plugin_name(), $this->get_version() );
-		$this->loader->add_action( 'admin_menu', $main_menu, 'main_menu' );
-		$this->loader->add_action( 'plugin_action_links', $main_menu, 'plugin_action_links', 1000, 2 );
+		$this->loader->add_action( 'plugin_action_links', $plugin_admin, 'plugin_action_links', 1000, 2 );
 	}
 
 	/**
