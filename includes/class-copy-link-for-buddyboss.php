@@ -235,7 +235,7 @@ final class Copy_Link_For_BuddyBoss {
 				'file_path' 		=> COPY_LINK_FOR_BUDDYBOSS_PLUGIN_FILE,
 				'name_slug'			=> COPY_LINK_FOR_BUDDYBOSS_PLUGIN_NAME_SLUG,
 				'release_branch' 	=> 'main',
-				'release-assets' 	=> true
+				'release-assets' 	=> false
 			);
 
 			new WPBoilerplate_Updater_Checker_Github( $package );
