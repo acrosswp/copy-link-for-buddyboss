@@ -77,6 +77,15 @@ final class Copy_Link_For_BuddyBoss {
 	protected $version;
 
 	/**
+	 * The unique identifier of settings key id.
+	 *
+	 * @since    1.0.0
+	 * @access   protected
+	 * @var      string    $plugin_name    The string used to uniquely identify activity key id.
+	 */
+	public $settings_key_id;
+
+	/**
 	 * The unique identifier of activity key id.
 	 *
 	 * @since    1.0.0
