@@ -3,7 +3,7 @@
         'name' => 'wpboilerplate/copy-link-for-buddyboss',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '969efef18d3e0dcf2c52382340ed743c45fbf3ac',
+        'reference' => 'f924aae2bdde75d8ea11ec677a8e64dc0ff25ac6',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'wpboilerplate/copy-link-for-buddyboss' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '969efef18d3e0dcf2c52382340ed743c45fbf3ac',
+            'reference' => 'f924aae2bdde75d8ea11ec677a8e64dc0ff25ac6',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -55,7 +55,7 @@
         'yahnis-elsts/plugin-update-checker' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'dfc396c0110fa1739dd4e349a1889d587ac21644',
+            'reference' => '73e6281e434bceffa7884568611804f8c38e27b5',
             'type' => 'library',
             'install_path' => __DIR__ . '/../yahnis-elsts/plugin-update-checker',
             'aliases' => array(

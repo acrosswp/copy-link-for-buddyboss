@@ -144,12 +144,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/YahnisElsts/plugin-update-checker.git",
-                "reference": "dfc396c0110fa1739dd4e349a1889d587ac21644"
+                "reference": "73e6281e434bceffa7884568611804f8c38e27b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/YahnisElsts/plugin-update-checker/zipball/dfc396c0110fa1739dd4e349a1889d587ac21644",
-                "reference": "dfc396c0110fa1739dd4e349a1889d587ac21644",
+                "url": "https://api.github.com/repos/YahnisElsts/plugin-update-checker/zipball/73e6281e434bceffa7884568611804f8c38e27b5",
+                "reference": "73e6281e434bceffa7884568611804f8c38e27b5",
                 "shasum": ""
             },
             "require": {
@@ -160,7 +160,7 @@
             "type": "library",
             "autoload": {
                 "files": [
-                    "load-v5p4.php"
+                    "load-v5p5.php"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -187,19 +187,19 @@
                 "issues": "https://github.com/YahnisElsts/plugin-update-checker/issues",
                 "source": "https://github.com/YahnisElsts/plugin-update-checker/tree/master"
             },
-            "time": "2024-07-06T16:56:43+00:00"
+            "time": "2024-12-09T15:47:56+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "wpboilerplate/wpb-updater-checker-github": 20,
-        "wpboilerplate/wpb-buddyboss-dependency": 20
+        "wpboilerplate/wpb-buddyboss-dependency": 20,
+        "wpboilerplate/wpb-updater-checker-github": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
-    "platform-dev": [],
+    "platform": {},
+    "platform-dev": {},
     "plugin-api-version": "2.6.0"
 }
