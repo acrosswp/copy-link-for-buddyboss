@@ -104,6 +104,15 @@ final class Copy_Link_For_BuddyBoss {
 	public $comment_key_id;
 
 	/**
+	 * The unique dir for plugins
+	 *
+	 * @since    1.0.5
+	 * @access   protected
+	 * @var      string    $plugin_name    The string used to uniquely identify comment key id.
+	 */
+	public $plugin_dir;
+
+	/**
 	 * Define the core functionality of the plugin.
 	 *
 	 * Set the plugin name and the plugin version that can be used throughout the plugin.

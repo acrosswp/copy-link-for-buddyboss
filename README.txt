@@ -4,7 +4,7 @@ Tags: buddyboss, buddyboss-platform, copy-link, copy-activity-link
 Donate link: https://acrosswp.com/
 Requires at least: 6.0
 Tested up to: 6.4.3
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 Requires PHP: 7.4
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -51,6 +51,9 @@ Example 2:
 
 
 == Changelog ==
+= 1.0.5 =
+* Update Changelog
+* Fix notices
 
 = 1.0.4 =
 * Update Changelog
